@@ -1,0 +1,56 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const { title = "Logistics", active = "" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <title>{title}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/assets/css/google-fonts.css" media="print" onload="this.media='all';this.onload=null;">
+    <link rel="stylesheet" href="/assets/css/icomoon.css" fetchpriority="high">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+
+    <link rel="stylesheet" href="/assets/css/aos.css">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <div class="site-wrap">
+      <SiteHeader active={active} />
+      <main>
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+
+    <script is:inline src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script is:inline src="/assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script is:inline src="/assets/js/jquery-ui.js"></script>
+    <script is:inline src="/assets/js/popper.min.js"></script>
+    <script is:inline src="/assets/js/bootstrap.min.js"></script>
+    <script is:inline src="/assets/js/owl.carousel.min.js"></script>
+    <script is:inline src="/assets/js/jquery.stellar.min.js"></script>
+    <script is:inline src="/assets/js/jquery.countdown.min.js"></script>
+    <script is:inline src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script is:inline src="/assets/js/bootstrap-datepicker.min.js"></script>
+    <script is:inline src="/assets/js/aos.js"></script>
+
+    <script is:inline src="/assets/js/main.js"></script>
+  </body>
+</html>
