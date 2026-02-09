@@ -14,17 +14,26 @@ const isServices = active === "services" ? " active" : "";
 </div>
 
 <header class="site-navbar py-3" role="banner">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="col-11 col-xl-2">
-        <h1 class="mb-0">
+      <h1 class="mb-0" style="position: absolute; left: 20px;">
           <a href="/" class="text-white h2 mb-0">
-            <img src="/assets/images/logo.png" alt="Image" class="" loading="lazy" decoding="async" style="position: absolute;top: -35px;width: 250px;">
+            <img
+              src="/assets/images/logo.png"
+              alt="Image"
+              class=""
+              loading="lazy"
+              decoding="async"
+              style="position: absolute;top: -35px;width: 215px;"
+            />
           </a>
         </h1>
-      </div>
-      <div class="col-12 col-md-10 d-none d-xl-block">
-        <nav class="site-navigation position-relative text-right" role="navigation">
+      <div class="col-11 col-xl-2"></div>
+      <div class="col-12 col-md-11 d-none d-xl-block">
+        <nav
+          class="site-navigation position-relative text-right"
+          role="navigation"
+        >
           <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
             <li class={isActive("home")}><a href="/">Inicio</a></li>
             <li class={isActive("about")}><a href="/about">Nosotros</a></li>
@@ -38,15 +47,30 @@ const isServices = active === "services" ? " active" : "";
                 <li><a href="#">Seguro de carga</a></li>
               </ul>
             </li>
-            <li class={isActive("industries")}><a href="/industries">Sectores</a></li>
+            <li class={isActive("industries")}>
+              <a href="/industries">Sectores</a>
+            </li>
             <li class={isActive("contact")}><a href="/contact">Contacto</a></li>
-            <li class={isActive("contact")}><a class="btn btn-primary px-5 text-white" href="/contact">Tracking</a></li>
+            <li class={isActive("tariff")}><a href="/tariff">Tarifario</a></li>
+            <li class={`${isActive("tariff")} text-center`}>
+              <a href="/tariff">Libro<br />Reclamaciones</a>
+            </li>
+            <li class={isActive("contact")}>
+              <a class="btn btn-primary px-5 text-white" href="/contact"
+                >Tracking</a
+              >
+            </li>
           </ul>
         </nav>
       </div>
 
-      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
-        <a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a>
+      <div
+        class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+        style="position: relative; top: 3px;"
+      >
+        <a href="#" class="site-menu-toggle js-menu-toggle text-white"
+          ><span class="icon-menu h3"></span></a
+        >
       </div>
     </div>
   </div>
