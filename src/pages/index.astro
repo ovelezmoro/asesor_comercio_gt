@@ -1,5 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Testimonials from "../components/Testimonials.astro";
+import NewsSection from "../components/NewsSection.astro";
+import OfferingsSection from "../components/OfferingsSection.astro";
+import MoreServicesSection from "../components/MoreServicesSection.astro";
+
+const newsItems = [
+  {
+    imageSrc: "/assets/images/blog_1.jpg",
+    imageAlt: "Checklist de importacion",
+    title: "Checklist para tu primera importaci&oacute;n",
+    meta: "por Equipo ACGT <span class=\"mx-2\">&bullet;</span> Feb 8, 2026 <span class=\"mx-2\">&bullet;</span> <a href=\"#\">Gu&iacute;a</a>",
+    excerpt: "Revisa documentos, incoterms y plazos antes de embarcar.",
+    href: "#",
+  },
+  {
+    imageSrc: "/assets/images/blog_2.jpg",
+    imageAlt: "Costos y tiempos",
+    title: "Costos y tiempos en transporte a&eacute;reo",
+    meta: "por Equipo ACGT <span class=\"mx-2\">&bullet;</span> Feb 8, 2026 <span class=\"mx-2\">&bullet;</span> <a href=\"#\">Log&iacute;stica</a>",
+    excerpt: "Comparativas de rutas, consolidaci&oacute;n y entregas urgentes.",
+    href: "#",
+  },
+];
 ---
 
 <BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Inicio" active="home">
@@ -59,49 +82,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="mb-0 text-primary">Lo que ofrecemos</h2>
-            <p class="color-black-opacity-5">Asesor&iacute;a integral en importaci&oacute;n y exportaci&oacute;n.</p>
-          </div>
-        </div>
-        <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-travel"></span></div>
-              <div>
-                <h3>Transporte a&eacute;reo</h3>
-                <p>Consolidaci&oacute;n, rutas directas y manejo de carga urgente.</p>
-                <p class="mb-0"><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sea-ship-with-containers"></span></div>
-              <div>
-                <h3>Transporte mar&iacute;timo</h3>
-                <p>FCL/LCL, coordinaci&oacute;n de navieras y costos claros.</p>
-                <p class="mb-0"><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-frontal-truck"></span></div>
-              <div>
-                <h3>Transporte terrestre</h3>
-                <p>Retiro y entrega local con trazabilidad.</p>
-                <p class="mb-0"><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
   
 
     <div class="site-section block-13">
@@ -166,81 +146,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     
 
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">M&aacute;s servicios</h2>
-            <p class="color-black-opacity-5">Soluciones complementarias para tu operaci&oacute;n.</p>
-          </div>
-        </div>
-        <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-travel"></span></div>
-              <div>
-                <h3>Consolidaci&oacute;n de carga</h3>
-                <p>Agrupamos embarques para reducir costos.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-sea-ship-with-containers"></span></div>
-              <div>
-                <h3>Despacho aduanero</h3>
-                <p>Gesti&oacute;n documentaria y cumplimiento normativo.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-frontal-truck"></span></div>
-              <div>
-                <h3>Puerta a puerta</h3>
-                <p>Coordinaci&oacute;n integral desde origen hasta destino.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-barn"></span></div>
-              <div>
-                <h3>Seguros de carga</h3>
-                <p>Cobertura ante riesgos y siniestros.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-platform"></span></div>
-              <div>
-                <h3>Almacenamiento temporal</h3>
-                <p>Custodia segura y control de inventario.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-car"></span></div>
-              <div>
-                <h3>Distribuci&oacute;n local</h3>
-                <p>Rutas programadas y seguimiento.</p>
-                <p><a href="/services">Ver detalle</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <MoreServicesSection />
 
     <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(/assets/images/hero_bg_2.jpg); background-attachment: fixed;">
       <div class="container">
@@ -255,96 +161,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>  
     
-    <div class="site-section border-bottom">
-      <div class="container">
+    <Testimonials />
 
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Testimonios</h2>
-          </div>
-        </div>
-
-        <div class="slide-one-item home-slider owl-carousel">
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_3.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Mariana Salazar</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Excelente acompa&ntilde;amiento en la importaci&oacute;n; todo lleg&oacute; a tiempo.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_2.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Luis Ortega</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Nos guiaron con aduanas y costos, con total claridad.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_4.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Paola Rivas</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Rapidez en el a&eacute;reo y seguimiento permanente.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_5.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Carlos Medina</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Equipo confiable para nuestras exportaciones.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Novedades</h2>
-            <p class="color-black-opacity-5">Informaci&oacute;n &uacute;til para comercio exterior.</p>
-          </div>
-        </div>
-        <div class="row mb-3 align-items-stretch">
-          <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="/assets/images/blog_1.jpg" alt="Image" class="img-fluid" loading="lazy" decoding="async">
-              <h2 class="font-size-regular"><a href="#">Checklist para tu primera importaci&oacute;n</a></h2>
-              <div class="meta mb-4">por Equipo ACGT <span class="mx-2">&bullet;</span> Feb 8, 2026 <span class="mx-2">&bullet;</span> <a href="#">Gu&iacute;a</a></div>
-              <p>Revisa documentos, incoterms y plazos antes de embarcar.</p>
-            </div> 
-          </div>
-          <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="/assets/images/blog_2.jpg" alt="Image" class="img-fluid" loading="lazy" decoding="async">
-              <h2 class="font-size-regular"><a href="#">Costos y tiempos en transporte a&eacute;reo</a></h2>
-              <div class="meta mb-4">por Equipo ACGT <span class="mx-2">&bullet;</span> Feb 8, 2026 <span class="mx-2">&bullet;</span> <a href="#">Log&iacute;stica</a></div>
-              <p>Comparativas de rutas, consolidaci&oacute;n y entregas urgentes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <div class="site-section border-top">
       <div class="container">
         <div class="row text-center">

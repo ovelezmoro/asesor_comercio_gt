@@ -1,0 +1,77 @@
+---
+const defaultItems = [
+  {
+    iconClass: "flaticon-travel",
+    title: "Consolidaci&oacute;n de carga",
+    text: "Agrupamos embarques para reducir costos.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-sea-ship-with-containers",
+    title: "Despacho aduanero",
+    text: "Gesti&oacute;n documentaria y cumplimiento normativo.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-frontal-truck",
+    title: "Puerta a puerta",
+    text: "Coordinaci&oacute;n integral desde origen hasta destino.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-barn",
+    title: "Seguros de carga",
+    text: "Cobertura ante riesgos y siniestros.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-platform",
+    title: "Almacenamiento temporal",
+    text: "Custodia segura y control de inventario.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-car",
+    title: "Distribuci&oacute;n local",
+    text: "Rutas programadas y seguimiento.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+];
+
+const {
+  title = "M&aacute;s servicios",
+  subtitle = "Soluciones complementarias para tu operaci&oacute;n.",
+  items = defaultItems,
+} = Astro.props;
+---
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center border-primary">
+        <h2 class="font-weight-light text-primary" set:html={title}></h2>
+        <p class="color-black-opacity-5" set:html={subtitle}></p>
+      </div>
+    </div>
+    <div class="row align-items-stretch">
+      {items.map((item) => (
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+          <div class="unit-4 d-flex">
+            <div class="unit-4-icon mr-4"><span class={`text-primary ${item.iconClass}`}></span></div>
+            <div>
+              <h3 set:html={item.title}></h3>
+              <p set:html={item.text}></p>
+              <p><a href={item.href}>{item.linkLabel || "Ver detalle"}</a></p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

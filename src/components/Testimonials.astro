@@ -1,0 +1,56 @@
+---
+const defaultItems = [
+  {
+    name: "Mariana Salazar",
+    quote: "&ldquo;Excelente acompa&ntilde;amiento en la importaci&oacute;n; todo lleg&oacute; a tiempo.&rdquo;",
+    imageSrc: "/assets/images/person_3.jpg",
+    imageAlt: "Testimonio",
+  },
+  {
+    name: "Luis Ortega",
+    quote: "&ldquo;Nos guiaron con aduanas y costos, con total claridad.&rdquo;",
+    imageSrc: "/assets/images/person_2.jpg",
+    imageAlt: "Testimonio",
+  },
+  {
+    name: "Paola Rivas",
+    quote: "&ldquo;Rapidez en el a&eacute;reo y seguimiento permanente.&rdquo;",
+    imageSrc: "/assets/images/person_4.jpg",
+    imageAlt: "Testimonio",
+  },
+  {
+    name: "Carlos Medina",
+    quote: "&ldquo;Equipo confiable para nuestras exportaciones.&rdquo;",
+    imageSrc: "/assets/images/person_5.jpg",
+    imageAlt: "Testimonio",
+  },
+];
+
+const { title = "Testimonios", items = defaultItems } = Astro.props;
+---
+
+<div class="site-section border-bottom">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center border-primary">
+        <h2 class="font-weight-light text-primary">{title}</h2>
+      </div>
+    </div>
+
+    <div class="slide-one-item home-slider owl-carousel">
+      {items.map((item) => (
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4">
+              <img src={item.imageSrc} alt={item.imageAlt || "Testimonio"} class="img-fluid mb-3" loading="lazy" decoding="async" />
+              <p set:html={item.name}></p>
+            </figure>
+            <blockquote>
+              <p set:html={item.quote}></p>
+            </blockquote>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

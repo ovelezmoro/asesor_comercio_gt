@@ -1,0 +1,26 @@
+---
+const { title, subtitle, items = [] } = Astro.props;
+---
+
+<div class="site-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center border-primary">
+        <h2 class="font-weight-light text-primary">{title}</h2>
+        <p class="color-black-opacity-5" set:html={subtitle}></p>
+      </div>
+    </div>
+    <div class="row mb-3 align-items-stretch">
+      {items.map((item) => (
+        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
+          <div class="h-entry">
+            <img src={item.imageSrc} alt={item.imageAlt || "Noticia"} class="img-fluid" loading="lazy" decoding="async" />
+            <h2 class="font-size-regular"><a href={item.href || "#"} set:html={item.title}></a></h2>
+            <div class="meta mb-4" set:html={item.meta}></div>
+            <p set:html={item.excerpt}></p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

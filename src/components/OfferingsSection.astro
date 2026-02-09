@@ -1,0 +1,56 @@
+---
+const defaultItems = [
+  {
+    iconClass: "flaticon-travel",
+    title: "Transporte a&eacute;reo",
+    text: "Consolidaci&oacute;n, rutas directas y manejo de carga urgente.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-sea-ship-with-containers",
+    title: "Transporte mar&iacute;timo",
+    text: "FCL/LCL, coordinaci&oacute;n de navieras y costos claros.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+  {
+    iconClass: "flaticon-frontal-truck",
+    title: "Transporte terrestre",
+    text: "Retiro y entrega local con trazabilidad.",
+    href: "/services",
+    linkLabel: "Ver detalle",
+  },
+];
+
+const {
+  title = "Lo que ofrecemos",
+  subtitle = "Asesor&iacute;a integral en importaci&oacute;n y exportaci&oacute;n.",
+  items = defaultItems,
+} = Astro.props;
+---
+
+<div class="site-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 text-center border-primary">
+        <h2 class="mb-0 text-primary">{title}</h2>
+        <p class="color-black-opacity-5" set:html={subtitle}></p>
+      </div>
+    </div>
+    <div class="row align-items-stretch">
+      {items.map((item) => (
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="unit-4 d-flex">
+            <div class="unit-4-icon mr-4"><span class={`text-primary ${item.iconClass}`}></span></div>
+            <div>
+              <h3 set:html={item.title}></h3>
+              <p set:html={item.text}></p>
+              <p class="mb-0"><a href={item.href}>{item.linkLabel || "Ver detalle"}</a></p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

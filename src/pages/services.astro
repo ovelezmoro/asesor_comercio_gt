@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Testimonials from "../components/Testimonials.astro";
 ---
 
 <BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Servicios" active="services">
@@ -87,64 +88,5 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
     </div>
     
-    <div class="site-section border-bottom">
-      <div class="container">
-
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Testimonios</h2>
-          </div>
-        </div>
-
-        <div class="slide-one-item home-slider owl-carousel">
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_3.jpg" alt="Image" class="img-fluid mb-3" fetchpriority="high" decoding="sync">
-                <p>Mariana Salazar</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Excelente acompa&ntilde;amiento en la importaci&oacute;n; todo lleg&oacute; a tiempo.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_2.jpg" alt="Image" class="img-fluid mb-3" fetchpriority="high" decoding="sync">
-                <p>Luis Ortega</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Nos guiaron con aduanas y costos, con total claridad.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_4.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Paola Rivas</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Rapidez en el a&eacute;reo y seguimiento permanente.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="/assets/images/person_5.jpg" alt="Image" class="img-fluid mb-3" loading="lazy" decoding="async">
-                <p>Carlos Medina</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Equipo confiable para nuestras exportaciones.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <Testimonials />
 </BaseLayout>
