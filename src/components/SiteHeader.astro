@@ -35,10 +35,10 @@ const isServices = active === "services" ? " active" : "";
           role="navigation"
         >
           <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-            <li class={isActive("home")}><a href="/" class="text-black font-weight-bold">Inicio</a></li>
-            <li class={isActive("about")}><a href="/about" class="text-black font-weight-bold">Nosotros</a></li>
-            <li class={`has-children${isServices}`}>
-              <a href="/services" class="text-black font-weight-bold">Servicios</a>
+            <li class={`${isActive("home")} text-black font-weight-bold`}><a href="/">Inicio</a></li>
+            <li class={`${isActive("about")} text-black font-weight-bold`}><a href="/about">Nosotros</a></li>
+            <li class={`has-children ${isServices}`}>
+              <a href="/services" class="font-weight-bold">Servicios</a>
               <ul class="dropdown">
                 <li><a href="#">Transporte a&eacute;reo</a></li>
                 <li><a href="#">Transporte mar&iacute;timo</a></li>
@@ -47,13 +47,13 @@ const isServices = active === "services" ? " active" : "";
                 <li><a href="#">Seguro de carga</a></li>
               </ul>
             </li>
-            <li class={isActive("industries")}>
-              <a href="/industries" class="text-black font-weight-bold">Sectores</a>
+            <li class={`${isActive("industries")} text-black font-weight-bold`}>
+              <a href="/industries">Sectores</a>
             </li>
-            <li class={isActive("contact")}><a href="/contact" class="text-black font-weight-bold">Contacto</a></li>
-            <li class={isActive("tariff")}><a href="/tariff" class="text-black font-weight-bold">Tarifario</a></li>
-            <li class={`${isActive("complaints_book")} text-center`}>
-              <a href="/tariff" class="text-black font-weight-bold">Libro<br />Reclamaciones</a>
+            <li class={`${isActive("contact")} text-black font-weight-bold`}><a href="/contact">Contacto</a></li>
+            <li class={`${isActive("tariff")} text-black font-weight-bold`}><a href="/tariff">Tarifario</a></li>
+            <li class={`${isActive("complaints")} text-black font-weight-bold text-center`}>
+              <a href="/complaints-book" >Libro<br />Reclamaciones</a>
             </li>
             <li class={isActive("contact")}>
               <a class="btn btn-primary px-5 text-white" href="/contact"

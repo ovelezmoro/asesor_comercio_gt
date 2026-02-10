@@ -1,0 +1,96 @@
+---
+type StatsItem = {
+  icon?: string;
+  value: number;
+  label: string;
+};
+
+const { items } = Astro.props as { items?: StatsItem[] };
+
+const defaultItems: StatsItem[] = [
+  { icon: "handshake", value: 4000, label: "Proyectos Realizados" },
+  { icon: "users", value: 3000, label: "Clientes Satisfechos" },
+  { icon: "badge", value: 3500, label: "Recomendaciones Positivas" },
+];
+
+const statsItems = (items && items.length ? items : defaultItems).map(
+  (item, index) => ({
+    ...item,
+    icon: item.icon ?? defaultItems[index]?.icon ?? "handshake",
+  })
+);
+
+const iconSvgs: Record<string, string> = {
+  handshake: `<svg viewBox="0 0 24 24" role="img" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12l-3.5 3.5a2.1 2.1 0 0 1-3 0l-1-1a2.1 2.1 0 0 1 0-3L8 7l4 4"/><path d="M12 12l3.5 3.5a2.1 2.1 0 0 0 3 0l1-1a2.1 2.1 0 0 0 0-3L16 7l-4 4"/><path d="M8 7l-2-2"/><path d="M16 7l2-2"/></svg>`,
+  users: `<svg viewBox="0 0 24 24" role="img" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  badge: `<svg viewBox="0 0 24 24" role="img" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 17l-5.5 2.5 1-6.2L3 8.9 9 8z"/><path d="M9.5 11.5l2 2 3-3"/></svg>`,
+};
+
+const getIconSvg = (name?: string) => iconSvgs[name ?? "handshake"] ?? iconSvgs.handshake;
+---
+
+<section class="stats-banner my-5" aria-label="Estad&iacute;sticas">
+  <div class="container">
+    <div class="row text-center">
+      {statsItems.map((item) => (
+        <div class="col-12 col-md-4" role="group">
+          <span class="stats-icon" set:html={getIconSvg(item.icon)}></span>
+          <div class="stats-value">+{item.value}</div>
+          <div class="stats-label">{item.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  .stats-banner {
+    background: linear-gradient(135deg, #0b1324 0%, #1c2537 100%);
+    border-bottom: 2px solid #ef6c57;
+    /*border-radius: 1.25rem;*/
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+    padding: 2.5rem 1rem;
+  }
+
+  .stats-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .stats-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .stats-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .stats-label {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    margin-top: 0.35rem;
+  }
+
+  @media (max-width: 767.98px) {
+    .stats-banner {
+      padding: 2rem 1rem;
+    }
+
+    .stats-value {
+      font-size: 2rem;
+    }
+
+    .stats-label {
+      margin-bottom: 1.25rem;
+    }
+  }
+</style>
