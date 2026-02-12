@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+---
+
+<BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Almacenaje y Deposito" active="services">
+  <PageHero
+    title="Almacenaje y dep&oacute;sito"
+    breadcrumbLabel="Servicios"
+    backgroundImage="/assets/images/hero_bg_5.jpg"
+  />
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 ml-auto mb-4 order-md-2" data-aos="fade">
+          <img
+            src="/assets/images/img_1.jpg"
+            alt="Almacenaje y deposito"
+            class="img-fluid rounded"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <div class="col-md-6 order-md-1" data-aos="fade">
+          <div class="text-left pb-1 border-primary mb-4">
+            <h2 class="text-primary">Custodia segura y control de inventario</h2>
+          </div>
+          <p>Recibimos tu mercaderia, registramos movimientos y mantenemos el orden de picking y despacho.</p>
+          <p class="mb-4">Optimizamos espacios y tiempos para que tu operacion se mantenga eficiente.</p>
+          <ul class="ul-check list-unstyled">
+            <li>Recepcion y verificacion de mercaderia</li>
+            <li>Control de inventario y reportes</li>
+            <li>Preparacion de pedidos y despacho</li>
+          </ul>
+          <p class="mb-0">
+            <a href="/contact" class="btn btn-primary py-2 px-4 text-white">Solicitar informaci&oacute;n</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

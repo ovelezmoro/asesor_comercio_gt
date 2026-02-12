@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+---
+
+<BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Seguro de Carga" active="services">
+  <PageHero
+    title="Seguro de carga"
+    breadcrumbLabel="Servicios"
+    backgroundImage="/assets/images/hero_bg_5.jpg"
+  />
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 ml-auto mb-4 order-md-2" data-aos="fade">
+          <img
+            src="/assets/images/img_5.jpg"
+            alt="Seguro de carga"
+            class="img-fluid rounded"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <div class="col-md-6 order-md-1" data-aos="fade">
+          <div class="text-left pb-1 border-primary mb-4">
+            <h2 class="text-primary">Proteccion ante riesgos en ruta</h2>
+          </div>
+          <p>Gestionamos coberturas adecuadas para tu tipo de mercaderia y modalidad de transporte.</p>
+          <p class="mb-4">Te ayudamos a minimizar riesgos con polizas claras y asesoramiento especializado.</p>
+          <ul class="ul-check list-unstyled">
+            <li>Evaluacion de riesgos por tipo de carga</li>
+            <li>Polizas con cobertura internacional</li>
+            <li>Soporte en siniestros y reclamos</li>
+          </ul>
+          <p class="mb-0">
+            <a href="/contact" class="btn btn-primary py-2 px-4 text-white">Solicitar informaci&oacute;n</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

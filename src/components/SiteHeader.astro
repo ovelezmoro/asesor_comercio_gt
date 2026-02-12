@@ -40,11 +40,11 @@ const isServices = active === "services" ? " active" : "";
             <li class={`has-children ${isServices}`}>
               <a href="/services" class="font-weight-bold">Servicios</a>
               <ul class="dropdown">
-                <li><a href="#">Transporte a&eacute;reo</a></li>
-                <li><a href="#">Transporte mar&iacute;timo</a></li>
-                <li><a href="#">Transporte terrestre</a></li>
-                <li><a href="#">Almacenamiento</a></li>
-                <li><a href="#">Seguro de carga</a></li>
+                <li><a href="/servicios/transporte-aereo">Transporte a&eacute;reo</a></li>
+                <li><a href="/servicios/transporte-maritimo">Transporte mar&iacute;timo</a></li>
+                <li><a href="/servicios/transporte-terrestre">Transporte terrestre</a></li>
+                <li><a href="/servicios/almacenaje-deposito">Almacenamiento</a></li>
+                <li><a href="/servicios/seguro-de-carga">Seguro de carga</a></li>
               </ul>
             </li>
             <li class={`${isActive("industries")} text-black font-weight-bold`}>
@@ -56,7 +56,7 @@ const isServices = active === "services" ? " active" : "";
               <a href="/complaints-book" >Libro<br />Reclamaciones</a>
             </li>
             <li class={isActive("contact")}>
-              <a class="btn btn-primary px-5 text-white" href="/contact"
+              <a class="btn btn-primary px-5 text-white" target="_blank" href="https://www.gsgroup.com.pe/webtrackinacgt/index.php"
                 >Tracking</a
               >
             </li>

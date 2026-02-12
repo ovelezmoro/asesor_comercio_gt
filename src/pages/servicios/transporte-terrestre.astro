@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+---
+
+<BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Transporte Terrestre" active="services">
+  <PageHero
+    title="Transporte terrestre"
+    breadcrumbLabel="Servicios"
+    backgroundImage="/assets/images/hero_bg_5.jpg"
+  />
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 ml-auto mb-4 order-md-2" data-aos="fade">
+          <img
+            src="/assets/images/img_3.jpg"
+            alt="Transporte terrestre"
+            class="img-fluid rounded"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <div class="col-md-6 order-md-1" data-aos="fade">
+          <div class="text-left pb-1 border-primary mb-4">
+            <h2 class="text-primary">Cobertura local con trazabilidad en ruta</h2>
+          </div>
+          <p>Organizamos retiros y entregas con unidades seguras, coordinando horarios y puntos de descarga.</p>
+          <p class="mb-4">Supervisamos la operaci&oacute;n para mantener control, visibilidad y soporte en cada tramo.</p>
+          <ul class="ul-check list-unstyled">
+            <li>Rutas programadas y entrega puntual</li>
+            <li>Seguimiento de carga y evidencias</li>
+            <li>Soporte operativo durante el servicio</li>
+          </ul>
+          <p class="mb-0">
+            <a href="/contact" class="btn btn-primary py-2 px-4 text-white">Solicitar informaci&oacute;n</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
