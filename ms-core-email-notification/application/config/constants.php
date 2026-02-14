@@ -102,4 +102,4 @@ defined('MAIL_FROM')         OR define('MAIL_FROM', 'no-reply@acgt.com.pe');
 defined('MAIL_FROM_NAME')    OR define('MAIL_FROM_NAME', 'ACGT');
 
 defined('CONTACT_EMAIL')     OR define('CONTACT_EMAIL', 'ventas@acgt.com.pe');
-defined('COMPLAINTS_EMAIL')  OR define('COMPLAINTS_EMAIL', 'reclamos@acgt.com.pe');
+defined('COMPLAINTS_EMAIL')  OR define('COMPLAINTS_EMAIL', 'marevalo@acgt.com.pe');
