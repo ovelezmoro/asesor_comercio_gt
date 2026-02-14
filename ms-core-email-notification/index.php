@@ -241,7 +241,12 @@ switch (ENVIRONMENT)
 		if (class_exists('Dotenv\Dotenv'))
 		{
 			$dotenv = Dotenv\Dotenv::createImmutable(FCPATH);
-			$dotenv->safeLoad();
+			try {
+				$dotenv->load();
+			} catch (Exception $e) {
+				// Log error but don't stop execution
+				error_log('Dotenv Error: ' . $e->getMessage());
+			}
 		}
 	}
 
