@@ -37,7 +37,7 @@ class Api_email extends CI_Controller
             ], 400);
         }
 
-        $recipient = defined('CONTACT_EMAIL') ? CONTACT_EMAIL : 'ventas@acgt.com.pe';
+        $recipient = getenv('CONTACT_EMAIL') ?: 'ventas@acgt.com.pe';
         $fullName = trim($firstName . ' ' . $lastName);
         $mailSubject = 'Contacto web: ' . ($subject !== '' ? $subject : 'Consulta');
         $mailBody = "Nombre: {$fullName}\n" .
@@ -92,7 +92,7 @@ class Api_email extends CI_Controller
             ], 400);
         }
 
-        $recipient = defined('COMPLAINTS_EMAIL') ? COMPLAINTS_EMAIL : (defined('CONTACT_EMAIL') ? CONTACT_EMAIL : 'ventas@acgt.com.pe');
+        $recipient = getenv('COMPLAINTS_EMAIL') ?: (getenv('CONTACT_EMAIL') ?: 'ventas@acgt.com.pe');
         $mailSubject = 'Libro de reclamaciones: ' . ($claimType !== '' ? $claimType : 'registro');
         $mailBody = "Reclamante: {$complainantName}\n" .
             "Correo: {$complainantEmail}\n" .
@@ -126,13 +126,13 @@ class Api_email extends CI_Controller
 
     private function send_mail($to, $subject, $body, $replyTo = '')
     {
-        $host = defined('SMTP_HOST') ? SMTP_HOST : '';
-        $port = (int) (defined('SMTP_PORT') ? SMTP_PORT : 587);
-        $user = defined('SMTP_USER') ? SMTP_USER : '';
-        $pass = defined('SMTP_PASS') ? SMTP_PASS : '';
-        $secure = defined('SMTP_SECURE') ? SMTP_SECURE : 'tls';
-        $fromEmail = defined('MAIL_FROM') ? MAIL_FROM : 'no-reply@localhost';
-        $fromName = defined('MAIL_FROM_NAME') ? MAIL_FROM_NAME : 'ACGT';
+        $host = getenv('SMTP_HOST') ?: '';
+        $port = (int) (getenv('SMTP_PORT') ?: 587);
+        $user = getenv('SMTP_USER') ?: '';
+        $pass = getenv('SMTP_PASS') ?: '';
+        $secure = getenv('SMTP_SECURE') ?: 'tls';
+        $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@localhost';
+        $fromName = getenv('MAIL_FROM_NAME') ?: 'ACGT';
         
         try {
             $mail = new PHPMailer(true);

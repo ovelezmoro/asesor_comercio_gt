@@ -232,6 +232,19 @@ switch (ENVIRONMENT)
 	// Path to the front controller (this file) directory
 	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 
+	// Load Composer autoloader
+	if (file_exists(FCPATH . 'vendor/autoload.php'))
+	{
+		require_once FCPATH . 'vendor/autoload.php';
+		
+		// Load environment variables from .env file
+		if (class_exists('Dotenv\Dotenv'))
+		{
+			$dotenv = Dotenv\Dotenv::createImmutable(FCPATH);
+			$dotenv->safeLoad();
+		}
+	}
+
 	// Name of the "system" directory
 	define('SYSDIR', basename(BASEPATH));
 
