@@ -1,11 +1,11 @@
-name: Deploy Slim API via FTP
+name: Deploy CI3 API via FTP
 
 on:
   push:
     branches:
       - main
     paths:
-      - "api/**"
+      - "ms-core-email-notification/**"
       - ".github/workflows/deploy-api.yml"
   workflow_dispatch:
 
@@ -20,11 +20,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.2"
+          php-version: "7.4"
           tools: composer
 
       - name: Install API dependencies
-        working-directory: api
+        working-directory: ms-core-email-notification
         run: composer install --no-dev --prefer-dist --optimize-autoloader
 
       - name: Deploy API via FTP
@@ -35,5 +35,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          local-dir: api/
-          server-dir: api/
+          local-dir: ms-core-email-notification/
+          server-dir: ms-core-email-notification/
