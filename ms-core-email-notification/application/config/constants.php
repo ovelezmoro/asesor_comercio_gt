@@ -83,3 +83,23 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/*
+|--------------------------------------------------------------------------
+| Email Configuration
+|--------------------------------------------------------------------------
+|
+| Email settings for SMTP and mail functions
+|
+*/
+defined('SMTP_HOST')         OR define('SMTP_HOST', 'mail.acgt.com.pe');
+defined('SMTP_PORT')         OR define('SMTP_PORT', 465);
+defined('SMTP_USER')         OR define('SMTP_USER', 'no-reply@acgt.com.pe');
+defined('SMTP_PASS')         OR define('SMTP_PASS', 'b+W0kXb36i?cFQCq');
+defined('SMTP_SECURE')       OR define('SMTP_SECURE', 'ssl');
+
+defined('MAIL_FROM')         OR define('MAIL_FROM', 'no-reply@acgt.com.pe');
+defined('MAIL_FROM_NAME')    OR define('MAIL_FROM_NAME', 'ACGT');
+
+defined('CONTACT_EMAIL')     OR define('CONTACT_EMAIL', 'ventas@acgt.com.pe');
+defined('COMPLAINTS_EMAIL')  OR define('COMPLAINTS_EMAIL', 'reclamos@acgt.com.pe');

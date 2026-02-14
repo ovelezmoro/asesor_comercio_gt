@@ -6,6 +6,8 @@ use PHPMailer\PHPMailer\Exception as MailerException;
 
 class Api_email extends CI_Controller
 {
+    private $last_error = '';
+
     public function contact()
     {
         if ($this->input->method(TRUE) !== 'POST') {
@@ -35,8 +37,7 @@ class Api_email extends CI_Controller
             ], 400);
         }
 
-        //$recipient = getenv('CONTACT_EMAIL') ?: 'ventas@acgt.com.pe';
-        $recipient = 'o.velezmoro@gmail.com';
+        $recipient = defined('CONTACT_EMAIL') ? CONTACT_EMAIL : 'ventas@acgt.com.pe';
         $fullName = trim($firstName . ' ' . $lastName);
         $mailSubject = 'Contacto web: ' . ($subject !== '' ? $subject : 'Consulta');
         $mailBody = "Nombre: {$fullName}\n" .
@@ -50,6 +51,7 @@ class Api_email extends CI_Controller
             return $this->json_response([
                 'success' => false,
                 'message' => 'Unable to send email.',
+                'error' => $this->last_error,
             ], 500);
         }
 
@@ -90,8 +92,7 @@ class Api_email extends CI_Controller
             ], 400);
         }
 
-        //$recipient = getenv('COMPLAINTS_EMAIL') ?: (getenv('CONTACT_EMAIL') ?: 'ventas@acgt.com.pe');
-        $recipient = 'o.velezmoro@gmail.com';
+        $recipient = defined('COMPLAINTS_EMAIL') ? COMPLAINTS_EMAIL : (defined('CONTACT_EMAIL') ? CONTACT_EMAIL : 'ventas@acgt.com.pe');
         $mailSubject = 'Libro de reclamaciones: ' . ($claimType !== '' ? $claimType : 'registro');
         $mailBody = "Reclamante: {$complainantName}\n" .
             "Correo: {$complainantEmail}\n" .
@@ -113,6 +114,7 @@ class Api_email extends CI_Controller
             return $this->json_response([
                 'success' => false,
                 'message' => 'Unable to send email.',
+                'error' => $this->last_error,
             ], 500);
         }
 
@@ -124,13 +126,13 @@ class Api_email extends CI_Controller
 
     private function send_mail($to, $subject, $body, $replyTo = '')
     {
-        $host = getenv('SMTP_HOST');
-        $port = (int) (getenv('SMTP_PORT') ?: 587);
-        $user = getenv('SMTP_USER');
-        $pass = getenv('SMTP_PASS');
-        $secure = getenv('SMTP_SECURE') ?: 'tls';
-        $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@localhost';
-        $fromName = getenv('MAIL_FROM_NAME') ?: 'ACGT';
+        $host = defined('SMTP_HOST') ? SMTP_HOST : '';
+        $port = (int) (defined('SMTP_PORT') ? SMTP_PORT : 587);
+        $user = defined('SMTP_USER') ? SMTP_USER : '';
+        $pass = defined('SMTP_PASS') ? SMTP_PASS : '';
+        $secure = defined('SMTP_SECURE') ? SMTP_SECURE : 'tls';
+        $fromEmail = defined('MAIL_FROM') ? MAIL_FROM : 'no-reply@localhost';
+        $fromName = defined('MAIL_FROM_NAME') ? MAIL_FROM_NAME : 'ACGT';
         
         try {
             $mail = new PHPMailer(true);
@@ -164,6 +166,8 @@ class Api_email extends CI_Controller
 
             return $mail->send();
         } catch (MailerException $exception) {
+            $this->last_error = $exception->getMessage();
+            log_message('error', 'PHPMailer Error: ' . $exception->getMessage());
             return false;
         }
     }

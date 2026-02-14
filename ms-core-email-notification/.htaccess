@@ -1,13 +1,14 @@
-<IfModule mod_env.c>
-    SetEnv SMTP_HOST mail.acgt.com.pe
-    SetEnv SMTP_PORT 465
-    SetEnv SMTP_USER no-reply@@acgt.com.pe
-    SetEnv SMTP_PASS b+W0kXb36i?cFQCq
-    SetEnv SMTP_SECURE tls
-
-    SetEnv MAIL_FROM no-reply@acgt.com.pe
-    SetEnv MAIL_FROM_NAME ACGT
-
-    SetEnv CONTACT_EMAIL ventas@acgt.com.pe
-    SetEnv COMPLAINTS_EMAIL reclamos@acgt.com.pe
-</IfModule>
+# Email configuration moved to application/config/constants.php
+#<IfModule mod_env.c>
+#    SetEnv SMTP_HOST mail.acgt.com.pe
+#    SetEnv SMTP_PORT 465
+#    SetEnv SMTP_USER no-reply@acgt.com.pe
+#    SetEnv SMTP_PASS b+W0kXb36i?cFQCq
+#    SetEnv SMTP_SECURE ssl
+#
+#    SetEnv MAIL_FROM no-reply@acgt.com.pe
+#    SetEnv MAIL_FROM_NAME ACGT
+#
+#    SetEnv CONTACT_EMAIL ventas@acgt.com.pe
+#    SetEnv COMPLAINTS_EMAIL reclamos@acgt.com.pe
+#</IfModule>
