@@ -127,11 +127,11 @@ class Api_email extends CI_Controller
     private function send_mail($to, $subject, $body, $replyTo = '')
     {
         $host = getenv('SMTP_HOST') ?: '';
-        $port = (int) (getenv('SMTP_PORT') ?: 587);
+        $port = (int) (getenv('SMTP_PORT') ?: 465);
         $user = getenv('SMTP_USER') ?: '';
         $pass = getenv('SMTP_PASS') ?: '';
-        $secure = getenv('SMTP_SECURE') ?: 'tls';
-        $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@localhost';
+        $secure = getenv('SMTP_SECURE') ?: 'ssl';
+        $fromEmail = getenv('MAIL_FROM') ?: 'no-reply@acgt.com.pe';
         $fromName = getenv('MAIL_FROM_NAME') ?: 'ACGT';
         
         try {
