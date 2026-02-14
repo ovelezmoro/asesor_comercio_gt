@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+---
+
+<BaseLayout title="ASESORES EN COMERCIO GT S.A.C. | Agenciamiento de Aduana" active="services">
+  <PageHero
+    title="Agenciamiento de aduana"
+    breadcrumbLabel="Servicios"
+    backgroundImage="/assets/images/hero_bg_5.jpg"
+  />
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5 ml-auto mb-4 order-md-2" data-aos="fade">
+          <img
+            src="/assets/images/img_3.jpg"
+            alt="Agenciamiento de aduana"
+            class="img-fluid rounded"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <div class="col-md-6 order-md-1" data-aos="fade">
+          <div class="text-left pb-1 border-primary mb-4">
+            <h2 class="text-primary">Gestion aduanera clara y sin demoras</h2>
+          </div>
+          <p>Asesoramos y tramitamos tu despacho aduanero con documentacion completa y cumplimiento normativo.</p>
+          <p class="mb-4">Coordinamos clasificacion arancelaria, permisos y seguimiento para reducir tiempos y riesgos.</p>
+          <ul class="ul-check list-unstyled">
+            <li>Revision documental y cumplimiento SUNAT</li>
+            <li>Clasificacion arancelaria y permisos</li>
+            <li>Seguimiento del despacho y liberacion</li>
+          </ul>
+          <p class="mb-0">
+            <a href="/contact" class="btn btn-primary py-2 px-4 text-white">Solicitar informacion</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

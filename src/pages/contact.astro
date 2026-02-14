@@ -18,17 +18,17 @@ import PageHero from "../components/PageHero.astro";
 
             
 
-            <form action="#" class="p-5 bg-white">
+            <form action="/api/ms-core-support-email/contact" method="post" class="p-5 bg-white" id="contact-form">
              
 
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Nombre</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" id="fname" name="first_name" class="form-control">
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Apellido</label>
-                  <input type="text" id="lname" class="form-control">
+                  <input type="text" id="lname" name="last_name" class="form-control">
                 </div>
               </div>
 
@@ -36,7 +36,7 @@ import PageHero from "../components/PageHero.astro";
                 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Correo</label> 
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" id="email" name="email" class="form-control">
                 </div>
               </div>
 
@@ -44,7 +44,7 @@ import PageHero from "../components/PageHero.astro";
                 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Asunto</label> 
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="text" id="subject" name="subject" class="form-control">
                 </div>
               </div>
 
@@ -58,6 +58,12 @@ import PageHero from "../components/PageHero.astro";
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Enviar mensaje" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+              <div class="row form-group mb-0">
+                <div class="col-md-12">
+                  <div id="contact-status" class="text-left" aria-live="polite"></div>
                 </div>
               </div>
 
@@ -89,3 +95,49 @@ import PageHero from "../components/PageHero.astro";
       </div>
     </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var statusEl = document.getElementById('contact-status');
+    if (!form || !statusEl) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      statusEl.textContent = 'Enviando...';
+      statusEl.className = 'text-muted';
+
+      var submitBtn = form.querySelector('input[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.success) {
+            statusEl.textContent = 'Mensaje enviado. Te responderemos pronto.';
+            statusEl.className = 'text-success';
+            form.reset();
+            return;
+          }
+
+          var message = (result.data && result.data.message) ? result.data.message : 'No se pudo enviar el mensaje.';
+          statusEl.textContent = message;
+          statusEl.className = 'text-danger';
+        })
+        .catch(function () {
+          statusEl.textContent = 'Ocurrio un error al enviar el formulario.';
+          statusEl.className = 'text-danger';
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  })();
+</script>

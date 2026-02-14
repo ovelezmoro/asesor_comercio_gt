@@ -24,7 +24,7 @@ import PageHero from "../components/PageHero.astro";
               disposici&oacute;n.
             </p>
 
-            <form action="#" method="post">
+            <form action="/api/ms-core-support-email/complaints" method="post" id="complaints-form">
               <h4 class="text-primary mb-3">1. Identificaci&oacute;n del consumidor reclamante</h4>
               <div class="row">
                 <div class="form-group col-md-6">
@@ -284,6 +284,10 @@ import PageHero from "../components/PageHero.astro";
                   Enviar reclamaci&oacute;n
                 </button>
               </div>
+
+              <div class="form-group mb-0 mt-3">
+                <div id="complaints-status" class="text-left" aria-live="polite"></div>
+              </div>
             </form>
           </div>
         </div>
@@ -291,3 +295,49 @@ import PageHero from "../components/PageHero.astro";
     </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('complaints-form');
+    var statusEl = document.getElementById('complaints-status');
+    if (!form || !statusEl) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      statusEl.textContent = 'Enviando...';
+      statusEl.className = 'text-muted';
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.success) {
+            statusEl.textContent = 'Reclamacion enviada. Nos comunicaremos contigo.';
+            statusEl.className = 'text-success';
+            form.reset();
+            return;
+          }
+
+          var message = (result.data && result.data.message) ? result.data.message : 'No se pudo enviar la reclamacion.';
+          statusEl.textContent = message;
+          statusEl.className = 'text-danger';
+        })
+        .catch(function () {
+          statusEl.textContent = 'Ocurrio un error al enviar el formulario.';
+          statusEl.className = 'text-danger';
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  })();
+</script>
